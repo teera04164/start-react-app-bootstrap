@@ -19,7 +19,8 @@ class App extends Component {
         // <Router  basename="/logical">
       <Router basename="/"> 
           <Switch>
-            <Route exact path="/" component={Login}/>
+          <Route exact path="/" component={Login}/>
+            <Route exact path="/login" component={Login}/>
             <Route  path="/deshboard" component={Deshboard}/>
             {/* <Route path="/ipwan" component={IpWan}/>
             <Route path="/vlan" component={Vlan}/>
