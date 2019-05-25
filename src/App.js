@@ -20,7 +20,7 @@ class App extends Component {
       <Router basename="/"> 
           <Switch>
             <Route exact path="/" component={Login}/>
-            <Route exact path="/admin" component={Deshboard}/>
+            <Route  path="/deshboard" component={Deshboard}/>
             {/* <Route path="/ipwan" component={IpWan}/>
             <Route path="/vlan" component={Vlan}/>
             <Route path="/vprn" component={Vprn}/>
