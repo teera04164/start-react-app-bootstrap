@@ -1,38 +1,15 @@
-import { Layout } from 'antd'
+
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Avatar } from 'antd';
-import { Menu, Dropdown, Button, Icon, message } from 'antd';
-import {
-    BrowserRouter as Router,
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
-    Redirect,
+import Login from '../../container/login'
+import routes from '../../../routes';
+import Cart from '../../container/Deshboard/statistics'
 
-  } from 'react-router-dom'
 
-const { Header, Sider, Content } = Layout
-const SubMenu = Menu.SubMenu
-
-const menu = (
-    <Menu onClick={this.handleMenuClick}>
-        <Menu.Item key="1">
-        <i class="fas fa-user"></i>
-        &nbsp;profile
-      </Menu.Item>
-        <Menu.Item key="2">
-        <i class="fas fa-cog"></i>
-        &nbsp;Setting
-      </Menu.Item>
-
-        <Menu.Item key="3" onClick={this.onClickSignOut}>
-        <a  rel="noopener noreferrer" href="/login">
-        <i class="fas fa-sign-out-alt"></i>
-        &nbsp;Sign Out
-      </a>
-     
-      </Menu.Item>
-    </Menu>
-);
+const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout
 
 
 
@@ -41,140 +18,98 @@ class Nav extends React.Component {
         collapsed: false,
         isRedirect : false
     }
-    toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        })
-    }
-    handleButtonClick = (e) => {
-        message.info('Click on left button.');
-        console.log('click left button', e);
-    }
-
-    handleMenuClick = (e) => {
-        message.info('Click on menu item.');
-        console.log('click', e);
-    }
-
-    onClickSignOut = () => {
-        
-        this.setState({isRedirect : true})
-       
-        console.log("TCL: Nav -> onClickSignOut -> isRedirect", this.state.isRedirect)
-    }
-
     render() {
-    const { isRedirect } = this.state;
-      if (isRedirect === true) {
-          return (<Redirect to='/login' />);
-      }
+  
         return (
-            <Layout style={{ minHeight: '100vh' }}>
-
-
-                <Sider
-                    collapsible
-                    theme="light"
+          <Layout>
+          <Header className="header">
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              style={{ lineHeight: '64px' }}
+            >
+              {/* <Menu.Item key="1">nav 1</Menu.Item>
+              <Menu.Item key="2">nav 2</Menu.Item>
+              <Menu.Item key="3">nav 3</Menu.Item> */}
+            </Menu>
+          </Header>
+          <Layout>
+            <Sider width={200} style={{ background: '#fff' }}>
+              <Menu
+                mode="inline"
+                defaultSelectedKeys={['1']}
+                defaultOpenKeys={['sub1']}
+                style={{ height: '100%', borderRight: 0 }}
+              >
+                <SubMenu
+                  key="sub1"
+                  title={
+                    <span>
+                      <Icon type="user" />
+                      subnav 1
+                    </span>
+                  }
                 >
-                    <div className="logo" >
-                        <table style={{ border: "1" }}>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img
-                                            alt="description of wfdsdf"
-                                            src="https://scontent.fbkk9-2.fna.fbcdn.net/v/t1.0-9/12020061_792796374170658_6418240742981712420_n.png?_nc_cat=109&_nc_ht=scontent.fbkk9-2.fna&oh=e25a239720729289d49688d2ef00a942&oe=5D57B088" width="25%" style={{textAlign:"center", margin: "10px" }} />
-                                          
-                                    </td>
-
-                                </tr>
-                                </tbody>
-                        </table>
-                    </div>
-
-                    <Menu
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['4']}
-                        style={{ height: '100%', borderRight: 0 }}
-                        theme="light"
-                    >
-                        <Menu.Item key="1">
-                            <NavLink className='btn-slider' to="/"> <Icon type="dashboard" />
-                                <span>Dashboard </span></NavLink>
-                        </Menu.Item>
-                        <Menu.Item key="2" style={{ marginTop: "16px" }}>
-                            <NavLink to="/list">
-                                <Icon type="usergroup-add" />
-                                <span > นักเรียน </span>
-                            </NavLink>
-                        </Menu.Item>
-                        <SubMenu
-                            key="7"
-                            title={<span>
-                                <Icon type="usergroup-add" />
-                                <span>นักเรียน</span>
-                            </span>}
-                        >
-                            <Menu.Item key="4">
-                                <NavLink to="/campaign/draft">
-                                    <Icon type="inbox" />
-                                    <span > เพิ่มนักเรียน </span></NavLink>
-                            </Menu.Item>
-                            <Menu.Item key="5">
-                                <NavLink to="/campaign/delivered">
-                                    <Icon type="upload" />
-                                    <span > นักเรียนทั้งหมด </span></NavLink></Menu.Item>
-
-                        </SubMenu>
-                        <SubMenu
-                            key="4"
-                            title={<span>
-                                <Icon type="profile" />
-                                <span>Campaign</span>
-                            </span>}
-                        >
-                            <Menu.Item key="4">
-                                <NavLink to="/campaign/draft">
-                                    <Icon type="inbox" />
-                                    <span > Draft </span></NavLink>
-                            </Menu.Item>
-                            <Menu.Item key="5">
-                                <NavLink to="/campaign/delivered">
-                                    <Icon type="upload" />
-                                    <span > Delivered </span></NavLink></Menu.Item>
-
-                        </SubMenu>
-                        <Menu.Item key="6">
-                            <NavLink to="/template">
-                                <Icon type="layout" />
-                                <span > Template </span></NavLink>
-                        </Menu.Item>
-                    </Menu>
-
-                </Sider>
-                <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }}>
-                        <div className="float-right mr-3">
-                            <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" href="#">
-                                    <Avatar style={{ textAlign: "right" }} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                </a>
-
-                            </Dropdown>
-                        </div>
-
-                    </Header>
-                    <Content style={{
-                        margin: '20px 16px', minHeight: 280,
-                    }}
-                    >
-
-
-                    </Content>
-                </Layout>
-
+                  <Menu.Item key="1">
+                  <NavLink to="/deshboard/card">
+                    option1
+                    </NavLink>
+                    </Menu.Item>
+                  <Menu.Item key="2">option2</Menu.Item>
+                  <Menu.Item key="3">option3</Menu.Item>
+                  <Menu.Item key="4">option4</Menu.Item>
+                </SubMenu>
+                <SubMenu
+                  key="sub2"
+                  title={
+                    <span>
+                      <Icon type="laptop" />
+                      subnav 2
+                    </span>
+                  }
+                >
+                  <Menu.Item key="5">option5</Menu.Item>
+                  <Menu.Item key="6">option6</Menu.Item>
+                  <Menu.Item key="7">option7</Menu.Item>
+                  <Menu.Item key="8">option8</Menu.Item>
+                </SubMenu>
+                <SubMenu
+                  key="sub3"
+                  title={
+                    <span>
+                      <Icon type="notification" />
+                      subnav 3
+                    </span>
+                  }
+                >
+                  <Menu.Item key="9">option9</Menu.Item>
+                  <Menu.Item key="10">option10</Menu.Item>
+                  <Menu.Item key="11">option11</Menu.Item>
+                  <Menu.Item key="12">option12</Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Sider>
+            <Layout style={{ padding: '0 24px 24px' }}>
+              <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                <Breadcrumb.Item>List</Breadcrumb.Item>
+                <Breadcrumb.Item>App</Breadcrumb.Item>
+              </Breadcrumb>
+              <Content
+                style={{
+                  background: '#fff',
+                  padding: 24,
+                  margin: 0,
+                  minHeight: 280,
+                }}
+              >
+                {routes}
+              </Content>
             </Layout>
+          </Layout>
+        </Layout>
         )
     }
 }
