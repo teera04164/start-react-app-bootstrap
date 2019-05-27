@@ -11,6 +11,7 @@ import {
     Switch
 } from 'react-router-dom'
 import Manubar from "../../components/manuBar"
+import Info from "../info"
 import "./Deshboard.css"
 
 
@@ -33,7 +34,7 @@ class Login extends Component {
         return (
             <div>
                 <Manubar/>
-             
+                
             </div>
 
                 )

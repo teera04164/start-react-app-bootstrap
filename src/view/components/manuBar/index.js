@@ -16,9 +16,13 @@ const { Header, Content, Sider } = Layout
 class Nav extends React.Component {
     state = {
         collapsed: false,
-        isRedirect : false
+        isRedirect : false,
+        openInfo : false
     }
     render() {
+      if(this.props.info){
+        this.setState({openInfo : true})
+      }
   
         return (
           <Layout>
@@ -40,15 +44,21 @@ class Nav extends React.Component {
               <Menu
                 mode="inline"
                 defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
+                defaultOpenKeys={['sub2']}
                 style={{ height: '100%', borderRight: 0 }}
               >
-                <SubMenu
+                 <Menu.Item key="1">
+                 <NavLink to="/deshboard">
+              <Icon type="home" />
+              <span>หน้าหลัก</span>
+              </NavLink>
+            </Menu.Item>
+                {/* <Menu.Item
                   key="sub1"
                   title={
                     <span>
                       <Icon type="user" />
-                      subnav 1
+                     หน้าหลัก
                     </span>
                   }
                 >
@@ -60,22 +70,48 @@ class Nav extends React.Component {
                   <Menu.Item key="2">option2</Menu.Item>
                   <Menu.Item key="3">option3</Menu.Item>
                   <Menu.Item key="4">option4</Menu.Item>
-                </SubMenu>
+                </Menu.Item> */}
                 <SubMenu
                   key="sub2"
                   title={
                     <span>
-                      <Icon type="laptop" />
-                      subnav 2
+                     
+                       <Icon type="laptop" />
+                      ตัวจัดการ
+                    
+                     
                     </span>
                   }
                 >
-                  <Menu.Item key="5">option5</Menu.Item>
-                  <Menu.Item key="6">option6</Menu.Item>
-                  <Menu.Item key="7">option7</Menu.Item>
-                  <Menu.Item key="8">option8</Menu.Item>
+                  <Menu.Item key="5">
+                  <NavLink to="/deshboard/semester">
+                    <Icon type="plus" />สร้างปีการศึกษาใหม่
+                  </NavLink>  
+                  </Menu.Item>
+                  <Menu.Item key="6">
+                  <NavLink to="/deshboard/learnning_management">
+                    <Icon type="plus" />จัดการเรียนการสอน
+                  </NavLink>  
+                  </Menu.Item>
+                  <Menu.Item key="7">
+                  <NavLink to="/deshboard/sub">
+                    <Icon type="plus" />จัดการวิชาเรียน
+                  </NavLink>
+                  </Menu.Item>
+                  <Menu.Item key="8">
+                    <NavLink to ='/deshboard/teacher'>
+                    <Icon type="plus" />จัดการครู/อาจารย์
+                    </NavLink>
+                  
+          
+                    </Menu.Item>
+                  <Menu.Item key="9">
+                    <NavLink to = '/deshboard/student'>
+                    <Icon type="plus" />จัดการนักเรียน
+                    </NavLink>
+                    </Menu.Item>
                 </SubMenu>
-                <SubMenu
+                {/* <SubMenu
                   key="sub3"
                   title={
                     <span>
@@ -88,15 +124,15 @@ class Nav extends React.Component {
                   <Menu.Item key="10">option10</Menu.Item>
                   <Menu.Item key="11">option11</Menu.Item>
                   <Menu.Item key="12">option12</Menu.Item>
-                </SubMenu>
+                </SubMenu> */}
               </Menu>
             </Sider>
             <Layout style={{ padding: '0 24px 24px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
+              {/* <Breadcrumb style={{ margin: '16px 0' }}>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                 <Breadcrumb.Item>List</Breadcrumb.Item>
                 <Breadcrumb.Item>App</Breadcrumb.Item>
-              </Breadcrumb>
+              </Breadcrumb> */}
               <Content
                 style={{
                   background: '#fff',

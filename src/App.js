@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Login from '../src/view/container/login'
 import Deshboard from '../src/view/container/Deshboard'
+import Semester from '../src/view/container/Semester'
+import Learn from '../src/view/container/LearnManage'
+import Subject from '../src/view/container/Subject'
+import Student from '../src/view/container/Student'
+import Teacher from '../src/view/container/Teacher'
+import NotFound from '../src/view/container/NotFound'
 import {
   BrowserRouter as Router,
   Route,
@@ -20,15 +26,14 @@ class App extends Component {
       <Router basename="/"> 
           <Switch>
           <Route exact path="/" component={Login}/>
-            <Route exact path="/login" component={Login}/>
+            <Route  path="/login" component={Login}/>
             <Route  path="/deshboard" component={Deshboard}/>
-            {/* <Route path="/ipwan" component={IpWan}/>
-            <Route path="/vlan" component={Vlan}/>
-            <Route path="/vprn" component={Vprn}/>
-            <Route path="/iplan" component={IpLan} />
-            <Route path="/ipNms" component={IpNms} />
-            <Route path="/ipsw" component={IpSW} /> */}
-            {/* <Route component={NotFound}/> */}
+            <Route  path="/deshboard/semester" component={Semester}/>
+            <Route  path="/deshboard/learnning_management" component={Learn}/>
+            <Route  path="/deshboard/sub" component={Subject}/>
+            <Route  path="/deshboard/student" component={Student}/>
+            <Route  path="/deshboard/teacher" component={Teacher}/>
+            <Route component={NotFound}/>
           </Switch>
         </Router>
 
