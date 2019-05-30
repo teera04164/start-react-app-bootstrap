@@ -25,14 +25,9 @@ class App extends Component {
         // <Router  basename="/logical">
       <Router basename="/"> 
           <Switch>
-          <Route exact path="/" component={Login}/>
-            <Route  path="/login" component={Login}/>
-            <Route  path="/deshboard" component={Deshboard}/>
-            <Route  path="/deshboard/semester" component={Semester}/>
-            <Route  path="/deshboard/learnning_management" component={Learn}/>
-            <Route  path="/deshboard/sub" component={Subject}/>
-            <Route  path="/deshboard/student" component={Student}/>
-            <Route  path="/deshboard/teacher" component={Teacher}/>
+            <Route exact path="/" component={Login}/>
+            <Route exact path="/login" component={Login}/>
+            <Route  path="/" component={Deshboard}/>
             <Route component={NotFound}/>
           </Switch>
         </Router>

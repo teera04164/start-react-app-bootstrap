@@ -23,6 +23,8 @@ class Nav extends React.Component {
       if(this.props.info){
         this.setState({openInfo : true})
       }
+      console.log(routes);
+      
   
         return (
           <Layout>
@@ -84,29 +86,29 @@ class Nav extends React.Component {
                   }
                 >
                   <Menu.Item key="5">
-                  <NavLink to="/deshboard/semester">
+                  <NavLink to="/semester">
                     <Icon type="plus" />สร้างปีการศึกษาใหม่
                   </NavLink>  
                   </Menu.Item>
                   <Menu.Item key="6">
-                  <NavLink to="/deshboard/learnning_management">
+                  <NavLink to="/learnning_management">
                     <Icon type="plus" />จัดการเรียนการสอน
                   </NavLink>  
                   </Menu.Item>
                   <Menu.Item key="7">
-                  <NavLink to="/deshboard/sub">
+                  <NavLink to="/sub">
                     <Icon type="plus" />จัดการวิชาเรียน
                   </NavLink>
                   </Menu.Item>
                   <Menu.Item key="8">
-                    <NavLink to ='/deshboard/teacher'>
+                    <NavLink to ='/teacher'>
                     <Icon type="plus" />จัดการครู/อาจารย์
                     </NavLink>
                   
           
                     </Menu.Item>
                   <Menu.Item key="9">
-                    <NavLink to = '/deshboard/student'>
+                    <NavLink to = '/student'>
                     <Icon type="plus" />จัดการนักเรียน
                     </NavLink>
                     </Menu.Item>

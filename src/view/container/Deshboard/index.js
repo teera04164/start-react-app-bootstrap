@@ -19,7 +19,7 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            redirectToReferrer: false
+            redirectToReferrer: true
         };
 
     }
@@ -29,13 +29,21 @@ class Login extends Component {
     handleClickLogin = () => {
         this.setState({ redirectToReferrer: true })
     }
+    renderRedirect = () => {
+        if (this.state.redirectToReferrer) {
+          return <Redirect to='/deshboard' />
+        }
+      }
 
     render() {
         return (
             <div>
-                <Manubar/>
-                
+
+<Manubar/>
+{/* <Redirect to='/deshboard' /> */}
             </div>
+           
+          
 
                 )
             }
