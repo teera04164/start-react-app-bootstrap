@@ -49,8 +49,8 @@ class Nav extends React.Component {
                 defaultOpenKeys={['sub2']}
                 style={{ height: '100%', borderRight: 0 }}
               >
-                 <Menu.Item key="1">
-                 <NavLink to="/deshboard">
+              <Menu.Item key="1">
+              <NavLink to="/deshboard">
               <Icon type="home" />
               <span>หน้าหลัก</span>
               </NavLink>
@@ -113,6 +113,12 @@ class Nav extends React.Component {
                     </NavLink>
                     </Menu.Item>
                 </SubMenu>
+                <Menu.Item key="10">
+              <NavLink to="/">
+              <Icon type="home" />
+              <span>ออกจากระบบ</span>
+              </NavLink>
+            </Menu.Item>
                 {/* <SubMenu
                   key="sub3"
                   title={
