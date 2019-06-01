@@ -84,7 +84,11 @@ class Login extends Component {
                                 <td>87</td>
                                 <td>85</td>
                                 <td>101</td>
-                                <td><button type="button" class="btn btn-info btn-sm"><i class='fas fa-search'></i> แสดง</button></td>
+                                <td>
+                                    <Link to = "/student/junior/11">
+                                    <button type="button" class="btn btn-info btn-sm"><i class='fas fa-search'></i> แสดง</button>
+                                    </Link>
+                                </td>
                             </tr>
                             <tr style={Style.tr}>
                                 <th scope="row"></th>

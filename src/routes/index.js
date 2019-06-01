@@ -9,6 +9,7 @@ import SubJect from '../view/container/Subject'
 import Student from '../view/container/Student/index1'
 import Teacher from '../view/container/Teacher'
 import Junior from '../view/container/Student/Junior'
+import TableClass from '../view/container/Student/Junior/TableDetail'
 
 import Cart from '../view/container/Deshboard/statistics'
 
@@ -21,6 +22,7 @@ const routes = (
             <Route exact path="/sub" component={SubJect}/>
             <Route exact path="/student" component={Student}/>
             <Route exact path="/student/junior" component={Junior}/>
+            <Route exact path="/student/junior/:classNo" component={TableClass}/>
             <Route exact path="/teacher" component={Teacher}/>
   </Switch>
 )
