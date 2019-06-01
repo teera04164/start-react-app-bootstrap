@@ -10,7 +10,7 @@ import {
     BrowserRouter,
     Switch
 } from 'react-router-dom'
-import Manubar from "../../components/manuBar"
+import Manubar from "../../components/manuBar/indexV2"
 import Info from "../info"
 import "./Deshboard.css"
 
@@ -31,21 +31,19 @@ class Login extends Component {
     }
     renderRedirect = () => {
         if (this.state.redirectToReferrer) {
-          return <Redirect to='/deshboard' />
+            return <Redirect to='/deshboard' />
         }
-      }
+    }
 
     render() {
         return (
             <div>
-
-<Manubar/>
-{/* <Redirect to='/deshboard' /> */}
+                <Manubar />
             </div>
-           
-          
 
-                )
-            }
-        }
+
+
+        )
+    }
+}
 export default Login;
